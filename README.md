@@ -1,4 +1,4 @@
-# Computational-Chem
+# Swift Computational-Chem
 ---
 ## The aim of this project
 
