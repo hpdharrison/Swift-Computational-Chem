@@ -42,10 +42,22 @@ func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
 }
+// Write out the position log file
+func positionLogWriteOut(logEntry: String, fileName: String) {
+    let file = getDocumentsDirectory().appendingPathComponent(fileName)
+    do {
+        try logEntry.write(to: file, atomically: true, encoding: String.Encoding.utf8)
+    } catch {
+        print("Error writing out to file")
+    }
+}
 
+/*
 
-// MAIN
-let file = getDocumentsDirectory().appendingPathComponent("Swift Projects/Computational Chem/particleMotion.log")
+The following snippet models the movement of 6 distinct particles using a brownian motion model as defined by the function "multiParticleTrack(currentPositions:, velocity:, time:)"
+The simulation calculates the positions of every particle assuming a constant velocity takinf a "frame" every 0.2 seconds as defined by the time parameter. This therefore models their
+movement over a period of 200 seconds.
+
 var writeOut: String = ""
 var continualPostion: [[Float]] = [[0,0], [0,0], [0,0], [0,0], [0,0], [0,0]]
 for i in 1...1000{
@@ -57,8 +69,5 @@ for i in 1...1000{
     print(out)
     writeOut += "\(out) \n"
 }
-do {
-    try writeOut.write(to: file, atomically: true, encoding: String.Encoding.utf8)
-} catch {
-    print("Error writing out to file")
-}
+positionLogWriteOut(logEntry: writeOut, fileName: "Swift Projects/Computational Chem/particleMotion.log")
+*/
