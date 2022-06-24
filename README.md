@@ -3,8 +3,11 @@
 ## The aim of this project
 
 In this project, I aim to create a computational means to simulate any chemical reaction taking into account external factors such as temperature,
-pressure and concentration allowing for a complete evaluation of the reaction. The main language of choice is swift mainly for its relative ease of development
-and speed from being a compiled language. In addition it can be ported to iOS and MacOS to make it a powerful tool in learning and virtualising experiments.
+pressure and concentration allowing for a complete evaluation of the reaction.
+---
+## Why swift?
+
+Swift is a modern compiled language which is very fast and easy to develop. Swift, being the replacment for Obj-C, is natively compatible on any iOS and MacOS device. This will allow the tool to expand and perhaps be a powerful tool in learning the fundamental ideas in chemistry as well as simulating more complex reactions to safely predict what may happen in a physical lab experiment.
 ---
 ## Features
 Features of the software so far:
