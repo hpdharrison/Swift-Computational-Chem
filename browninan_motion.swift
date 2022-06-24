@@ -29,7 +29,7 @@ func position(current: [Float], velocity: Float, time: Float) -> [Float] {
     }
     return positionFinal
 }
-
+// Modification of position function to model for multiple particles
 func multiParticleTrack(currentPositions: [[Float]], velocity: Float, time: Float) -> [[Float]] {
     var positionFinal: [[Float]] = []
     for pos in currentPositions {
@@ -37,12 +37,14 @@ func multiParticleTrack(currentPositions: [[Float]], velocity: Float, time: Floa
     }
     return positionFinal
 }
-
+// Gets internal URL for log file to write out to
 func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
 }
 
+
+// MAIN
 let file = getDocumentsDirectory().appendingPathComponent("Swift Projects/Computational Chem/particleMotion.log")
 var writeOut: String = ""
 var continualPostion: [[Float]] = [[0,0], [0,0], [0,0], [0,0], [0,0], [0,0]]
