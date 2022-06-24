@@ -1,6 +1,7 @@
 # Computational-Chem
 ---
 ## The aim of this project
+
 In this project, I aim to create a computational means to simulate any chemical reaction taking into account external factors such as temperature,
 pressure and concentration allowing for a complete evaluation of the reaction. The main language of choice is swift mainly for its relative ease of development
 and speed from being a compiled language. In addition it can be ported to iOS and MacOS to make it a powerful tool in learning and virtualising experiments.
