@@ -58,8 +58,15 @@ let input = readLine()
 let target = input!
 let components = equationInput(input: target)
 print(components)
+print("==REACTANTS==")
 for molecule in components[0] {
-    print(molecule)
+    let moles = extractMoles(targetMole: molecule)
+    print("==\(moles[0])mol of \(moles[1])==")
+    print("Molecule Breakdown: ")
+    print(moleculeID(target: moles[1]))
+}
+print("\n==PRODUCTS==")
+for molecule in components[1] {
     let moles = extractMoles(targetMole: molecule)
     print("==\(moles[0])mol of \(moles[1])==")
     print("Molecule Breakdown: ")
