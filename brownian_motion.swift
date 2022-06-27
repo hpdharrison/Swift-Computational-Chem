@@ -52,14 +52,16 @@ func positionLogWriteOut(logEntry: String, fileName: String) {
     }
 }
 
-/*
 
-The following snippet models the movement of 6 distinct particles using a brownian motion model as defined by the function "multiParticleTrack(currentPositions:, velocity:, time:)"
-The simulation calculates the positions of every particle assuming a constant velocity takinf a "frame" every 0.2 seconds as defined by the time parameter. This therefore models their
-movement over a period of 200 seconds.
+//The following snippet models the movement of 6 distinct particles using a brownian motion model as defined by the function "multiParticleTrack(currentPositions:, velocity:, time:)"
+//The simulation calculates the positions of every particle assuming a constant velocity takinf a "frame" every 0.2 seconds as defined by the time parameter. This therefore models their
+//movement over a period of 200 seconds.
 
 var writeOut: String = ""
-var continualPostion: [[Float]] = [[0,0], [0,0], [0,0], [0,0], [0,0], [0,0]]
+var continualPostion: [[Float]] = []
+for member in 1...20{
+    continualPostion.append([0,0])
+}
 for i in 1...1000{
     var out: String = "@Time = \(Float(i)*0.2): "
     continualPostion = multiParticleTrack(currentPositions: continualPostion, velocity: 1.2, time: 0.2)
@@ -70,4 +72,3 @@ for i in 1...1000{
     writeOut += "\(out) \n"
 }
 positionLogWriteOut(logEntry: writeOut, fileName: "Swift Projects/Computational Chem/particleMotion.log")
-*/
