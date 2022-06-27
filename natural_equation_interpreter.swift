@@ -20,15 +20,13 @@ func extractMoles(targetMole: String) -> [String] {
     let match = matches.first!
     let molesInt: Int
     let equationString: String
-    print ("target.prefix(1)")
-    if Int(target.prefix(1)) == nil {
+    if Int(targetMole.prefix(1)) == nil {
         molesInt = 1
         equationString = targetMole
     } else {
         molesInt = Int(targetMole[Range(match.range(at: 1), in: targetMole)!])!
         equationString = String(targetMole[Range(match.range(at: 2), in: targetMole)!])
     }
-
     return [String(molesInt), equationString]
 }
 func moleculeID(target: String) -> [[String]] {
@@ -61,6 +59,7 @@ let target = input!
 let components = equationInput(input: target)
 print(components)
 for molecule in components[0] {
+    print(molecule)
     let moles = extractMoles(targetMole: molecule)
     print("==\(moles[0])mol of \(moles[1])==")
     print("Molecule Breakdown: ")
