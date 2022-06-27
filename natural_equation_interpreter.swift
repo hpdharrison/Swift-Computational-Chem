@@ -1,4 +1,5 @@
 import Foundation
+import Darwin
 
 func equationInput(input: String) -> [[String]] {
     // Split a reaction formula over the reaction symbol
@@ -36,7 +37,6 @@ func extractMoles(targetMole: String) -> [String] {
         molesInt = attemptedMolesInt
         equationString = String(targetMole[Range(match.range(at: 2), in: targetMole)!])
     }
-
     return [String(molesInt), equationString]
 }
 
@@ -76,7 +76,15 @@ let input = readLine()
 let target = input!
 let components = equationInput(input: target)
 print(components)
+print("==REACTANTS==")
 for molecule in components[0] {
+    let moles = extractMoles(targetMole: molecule)
+    print("==\(moles[0])mol of \(moles[1])==")
+    print("Molecule Breakdown: ")
+    print(moleculeID(target: moles[1]))
+}
+print("\n==PRODUCTS==")
+for molecule in components[1] {
     let moles = extractMoles(targetMole: molecule)
     print("==\(moles[0])mol of \(moles[1])==")
     print("Molecule Breakdown: ")

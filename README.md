@@ -17,7 +17,9 @@ Features of the software so far:
   - Each particle position
   - Timestamp
   - Each particles' respective velocity
-- Initial chemical formulae interpreter (Beta)
+- Natural chemical formulae interpreter
+  - Moles of each molecule grouped by reactants and products
+  - Molecule breakdown in tuples stating the quantity of each atom in a molecule
 ---
 ## Future additions
 As an on going project I hope to add (not limited to) some of the following features
