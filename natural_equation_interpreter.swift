@@ -31,8 +31,7 @@ func extractMoles(targetMole: String) -> [String] {
     var equationString = targetMole
     var molesInt: Int = 1
 
-    if let attemptedMolesInt = Int(molesStr)
-    {
+    if let attemptedMolesInt = Int(molesStr){
         // Since there is a prefixed number, data from capture groups needs to be used.
         molesInt = attemptedMolesInt
         equationString = String(targetMole[Range(match.range(at: 2), in: targetMole)!])
