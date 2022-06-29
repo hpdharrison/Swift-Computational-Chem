@@ -70,6 +70,17 @@ func moleculeID(target: String) -> [[String]] {
     return seperation
 }
 
+func readInTable(file: String) -> [[String]] {
+    let contents = try! String(contentsOfFile: file)
+    let contentsLines = contents.components(separatedBy: "\n")
+    var contentsComponents: [[String]] = []
+    for line in contentsLines{
+        contentsComponents.append(line.components(separatedBy: ","))
+    }
+    return contentsComponents
+}
+let table = readInTable(file: "./periodic_table.csv")
+
 print("Reaction: ", terminator: "")
 let input = readLine()
 let target = input!
