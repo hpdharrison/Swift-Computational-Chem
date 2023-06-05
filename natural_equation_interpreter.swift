@@ -1,6 +1,33 @@
 import Foundation
 import Darwin
 
+func findTotalMr(compound: [[Any]]) -> Float {
+    // Imports periodic table CSV and processes it into a 2D array "pTable"
+    var pTable: [[String]] = []
+    var totalMr: Float = 0
+    //var targetElement: String
+    //var sRatio: Int
+    let pTableImport = try! String(contentsOfFile: "periodic_table.csv")
+    let pTableImportSplit = pTableImport.components(separatedBy: "\n")
+    for line in pTableImportSplit {
+        pTable.append(line.components(separatedBy: ","))
+    }
+    // Wvaluate Mr of compound
+    for element in compound{
+        var Mr: Float = 0
+        for row in pTable{
+            if row.count > 3{
+                if row[2] == element[0] as! String {
+                    Mr = (row[3] as NSString).floatValue
+                }
+            }
+        }
+        if Mr == 0 {print("Error in finding "+(element[0] as! String)+". Please check formula")}
+            totalMr = totalMr + (Mr*(element[1] as! NSString).floatValue)
+    }
+    return totalMr
+}
+
 func equationInput(input: String) -> [[String]] {
     // Split a reaction formula over the reaction symbol
     // Support ONLY for forwards reactions
@@ -69,18 +96,6 @@ func moleculeID(target: String) -> [[String]] {
     }
     return seperation
 }
-
-func readInTable(file: String) -> [[String]] {
-    let contents = try! String(contentsOfFile: file)
-    let contentsLines = contents.components(separatedBy: "\n")
-    var contentsComponents: [[String]] = []
-    for line in contentsLines{
-        contentsComponents.append(line.components(separatedBy: ","))
-    }
-    return contentsComponents
-}
-let table = readInTable(file: "./periodic_table.csv")
-
 print("Reaction: ", terminator: "")
 let input = readLine()
 let target = input!
@@ -92,6 +107,8 @@ for molecule in components[0] {
     print("==\(moles[0])mol of \(moles[1])==")
     print("Molecule Breakdown: ")
     print(moleculeID(target: moles[1]))
+    print("Total Mr of compound: ")
+    print(findTotalMr(compound: moleculeID(target: moles[1])))
 }
 print("\n==PRODUCTS==")
 for molecule in components[1] {
@@ -99,4 +116,6 @@ for molecule in components[1] {
     print("==\(moles[0])mol of \(moles[1])==")
     print("Molecule Breakdown: ")
     print(moleculeID(target: moles[1]))
+    print("Total Mr of compound: ")
+    print(findTotalMr(compound: moleculeID(target: moles[1])))
 }
