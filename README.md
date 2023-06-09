@@ -23,11 +23,8 @@ Features of the software so far:
 ---
 ## Future additions
 As an on going project I hope to add (not limited to) some of the following features
-- Collision detection in accordance with the "Collision theory" of reaction
-- Compatability for reversible reactions
-- Compatability with "le Chateliers Principle"
-- Using the Arherrius equation to model the probability of a reacting collision
-- Intuitive GUI
+- Referencing NIST thermodynamics database to enable mathematical predictions of reactions
+- Implement Python-IOS (Swift pkg) and NistChemPy (Python pkg) to interface with the NIST database
 - Cross compatability with iOS
 - Optional support for modelling in 3D Space
 - Exporting graphical representations for such data as "Particle path", "Enthalpy Changes" e.t.c
